@@ -2,15 +2,18 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
+#include <opencv2/photo.hpp>
 #include <iostream>
 
-#define CINZA_LIMITE 128
+#define FORCA_FILTRO 2
+#define TAMANHO_EROSAO_DILATACAo 2
 #define BRANCO 255
 
 using namespace cv;
 using namespace std;
 
 int remove_bordas_brancas(string imagem_entrada, string output_path, string nome_imagem);
-Mat inverte_imagem(Mat imagem);
+Mat gera_imagem_binaria(Mat imagem);
+Mat remocao_ruidos(Mat imagem_binaria);
 Rect identifica_retangulo(Mat imagem_inversa);
 
