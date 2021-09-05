@@ -15,5 +15,5 @@ using namespace std;
 int remove_bordas_brancas(string imagem_entrada, string output_path, string nome_imagem);
 Mat gera_imagem_binaria(Mat imagem);
 Mat remocao_ruidos(Mat imagem_binaria);
-Rect identifica_retangulo(Mat imagem_inversa);
-
+Mat identifica_retangulo(Mat imagem_inversa);
+Mat identifica_retangulo_minimo(Mat imagem_base, Mat imagem_binaria);
