@@ -1,5 +1,6 @@
 CC := g++
 SRCDIR := src
+BINDIR := bin
 BUILDDIR := build
 TARGET := bin/main
 CFLAGS := -g
@@ -14,7 +15,9 @@ LIBS := $(OPENCV)
 all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
+	@mkdir $(BINDIR)
 	$(CC) $^ -o $(TARGET) $(LIBS)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(LIB) $(INC)  -c -o $@ $< 
