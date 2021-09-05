@@ -12,11 +12,11 @@ OPENCV := `pkg-config --cflags --libs opencv`
 LIBS := $(OPENCV)
 
 all: $(TARGET)
+	mkdir bin
 
 $(TARGET): $(OBJECTS)
-	@echo "$(CC) $^ -o $(TARGET) $(LIBS)" 
 	$(CC) $^ -o $(TARGET) $(LIBS)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
-	@echo "$(CC) $(CFLAGS) $(LIBS) $(INC) -c -o $@ $<" 
+	mkdir $(BUILDDIR)
 	$(CC) $(CFLAGS) $(LIB) $(INC)  -c -o $@ $< 
